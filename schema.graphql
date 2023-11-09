@@ -1,0 +1,43 @@
+type EventsSummary {
+  id: ID!
+  approval: [Approval!]! @derivedFrom(field: "eventsSummary")
+  approvalsCount: BigInt!
+  deposit: [Deposit!]! @derivedFrom(field: "eventsSummary")
+  depositsCount: BigInt!
+  transfer: [Transfer!]! @derivedFrom(field: "eventsSummary")
+  transfersCount: BigInt!
+  withdraw: [Withdraw!]! @derivedFrom(field: "eventsSummary")
+  withdrawsCount: BigInt!
+}
+
+type Approval {
+  id: ID!
+  owner: String!
+  spender: String!
+  value: BigInt!
+  eventsSummary: String!
+}
+type Deposit {
+  id: ID!
+  sender: String!
+  owner: String!
+  assets: BigInt!
+  shares: BigInt!
+  eventsSummary: String!
+}
+type Transfer {
+  id: ID!
+  from: String!
+  to: String!
+  value: BigInt!
+  eventsSummary: String!
+}
+type Withdraw {
+  id: ID!
+  sender: String!
+  receiver: String!
+  owner: String!
+  assets: BigInt!
+  shares: BigInt!
+  eventsSummary: String!
+}
